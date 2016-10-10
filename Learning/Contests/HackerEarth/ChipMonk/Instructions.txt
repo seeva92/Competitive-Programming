@@ -1,0 +1,53 @@
+Hi Alok,
+
+Language - Python 3.4.3
+IDE - PyCharm
+Unit Testing Framework - Python Unit Testing Framework(in-built)
+
+Run the main.py for the task
+Run the loader_test.py for the unittests
+
+Regex used wherever possible to improve the performance to top-notch
+
+Assumptions made
+1.Clear the formatting of the input file.
+2.Groups
+    name - Alphabets and Underscore alone - Formulated the regex
+    Followed by name comments can be there
+    e.g:
+    [common] ;asdfasdf
+    [common];asdffasdf
+    but ValueError will be thrown in this case
+        [common]asdf;asdffasdf
+        [common] asdf;asdffasdf
+
+3.Any empty number of empty lines can be there.
+4.Empty groups can be there.
+5.No nested groups.
+
+6.Settings
+    name - Alphabets and Underscore alone - Formulated the regex
+    Followed by value comments can be there
+    e.g:
+    path = /tmp/ ;This is comment
+    path = /tmp/;This is comment
+    but ValueError will be thrown in this case
+        path = /tmp/  aas;This is comment
+
+7.Empty settings should take the below format
+    path =
+    name =
+
+8.Boolean and Numbers are treated as strings
+9.Double quoted string can contain any characters
+    "hi how """ are you "" " - valid
+    "asdf, asdf 3452345 @#$%" - valid
+10.Strings without quotes can contain only the following chars
+    [a-zA-Z/0-9,]
+11. Key and Value length limits aren't set
+12. No multiline comments
+13. Single line and inline comments can be done through ';.*'
+
+
+Thanks for the task. It really challenged me a lot and looking
+further in the interview process.

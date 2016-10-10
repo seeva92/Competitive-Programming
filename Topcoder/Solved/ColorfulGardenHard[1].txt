@@ -1,0 +1,82 @@
+PROBLEM STATEMENT
+Our garden contains a single row of flowers.
+You are given the current contents of the row in the string garden.
+Each character in garden represents one flower.
+Different characters represent different colors.
+Flowers of the same color all look the same.
+
+
+
+You may rearrange the flowers in your garden into any order you like.
+(Formally, you may swap any two flowers in your garden, and you can do so arbitrarily many times.)
+
+
+
+You are also given a string forbid of the same length as garden.
+You want to rearrange garden into a new string G that will satisfy the following conditions:
+
+No two adjacent flowers will have the same color. Formally, for each valid i, G[i] and G[i+1] must differ.
+For each valid i, G[i] must not be equal to forbid[i].
+
+
+Let X be the number of different strings G that satisfy all conditions given above.
+Compute and return the number (X modulo 1,000,000,007).
+
+DEFINITION
+Class:ColorfulGardenHard
+Method:count
+Parameters:string, string
+Returns:int
+Method signature:int count(string garden, string forbid)
+
+
+CONSTRAINTS
+-garden will contain between 1 and 15 elements, inclusive.
+-Each element in garden will be a lowercase English letter: 'a'-'z'.
+-garden and forbid will contain the same number of elements.
+-Each element in forbid will be a lowercase English letter: 'a'-'z'.
+
+
+EXAMPLES
+
+0)
+"aaabbb"
+"cccccc"
+
+Returns: 2
+
+There are two solutions: "ababab" and "bababa".
+
+1)
+"aabbcc"
+"aabbcc"
+
+Returns: 5
+
+We have 5 solutions: "bcacba" "cbacba", "cbacab", "bcacab", "cbcaba".
+
+
+
+2)
+"aaaabb"
+"xxxxxx"
+
+Returns: 0
+
+
+
+3)
+"abcdefghijklmno"
+"zzzzzzzzzzzzzzz"
+
+Returns: 674358851
+
+The answer is (15!) % (10^9+7).
+
+4)
+"a"
+"b"
+
+Returns: 1
+
+

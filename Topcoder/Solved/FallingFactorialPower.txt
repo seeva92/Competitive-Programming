@@ -1,0 +1,67 @@
+PROBLEM STATEMENT
+A number n taken to the falling factorial power k is defined as n*(n-1)*...*(n-k+1). We will denote it by n^^k. For example, 7^^3=7*6*5=210. By definition, n^^1=n.
+We will now continue this definition to the non-positive values of k using the following fact: (n-k)*(n^^k)=n^^(k+1), or, in other words, n^^k=(n^^(k+1))/(n-k). It is directly derived from the above definition.
+By using it, we find:
+n^^0=n^^1/(n-0)=1, n^^(-1)=n^^0/(n+1)=1/(n+1),
+n^^(-2)=1/(n+1)/(n+2),
+and, in general, n^^(-k)=1/(n+1)/(n+2)/.../(n+k).For example, 3^^(-1)=1/4=0.25, 2^^(-3)=1/3/4/5=1/60=0.016666... 
+Given a positive int n and an int k, return a double containing the value of n taken to the falling factorial power of k.
+
+DEFINITION
+Class:FallingFactorialPower
+Method:compute
+Parameters:int, int
+Returns:double
+Method signature:double compute(int n, int k)
+
+
+NOTES
+-Your return must have relative or absolute error less than 1E-9.
+
+
+CONSTRAINTS
+-n will be between 1 and 10, inclusive.
+-k will be between -5 and 5, inclusive.
+
+
+EXAMPLES
+
+0)
+7
+3
+
+Returns: 210.0
+
+7^^3=7*6*5=210.
+
+1)
+10
+1
+
+Returns: 10.0
+
+
+
+2)
+5
+0
+
+Returns: 1.0
+
+
+
+3)
+3
+-1
+
+Returns: 0.25
+
+
+
+4)
+2
+-3
+
+Returns: 0.016666666666666666
+
+

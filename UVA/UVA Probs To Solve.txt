@@ -1,0 +1,191 @@
+UVa Probs Next to Solve
+1D Array
+1. 230 - Completed
+2. 665 - Completed
+3. 10038 - Completed
+4. 11340 - Completed
+5. 11093 - Completed
+6. 11340 - Duplicate
+7. 12150 - Completed
+8. 12356 - Completed
+2D Array
+9. 10855 - Completed
+10. 10920 - Completed
+11. 11581 - Completed
+12. 12187 - Completed
+13. 12291 - Completed
+14. 12398 - Completed
+15. 10703 - Completed
+16. 10016 - Completed
+C++ STL
+17. 146 - Completed
+18. 790 - Completed
+19. 10057 - Completed
+20. 10107 - Completed
+21. 10258 - Completed
+22. 10698 - Wait for reply
+23. 12541 - Completed
+Bit Manipulation
+24. 594 - Completed
+25. 700 - Completed
+26. 1241 - Completed
+27. 10264 - Completed
+28. 11173 - Completed
+29. 11760 - Completed
+30. 11926 - Completed
+31. 11933 - Completed
+C++ STL list
+32. 11988 - Completed
+C++ Stack
+33. 514 - Completed
+34. 732 - Completed
+35. 1062 - Completed
+36. 10858 - Completed
+37. 127 - Completed
+C++ Queue and Deque
+37. 540 - Completed
+38. 10172 - Completed
+39. 10901 - Trying
+40. 10935 - Completed
+41. 11034 - Dependent on 10901
+42. 12100 - Completed
+43. 12207 - Completed
+---------------------------
+Non linear data structures
+C++ Map
+1. 417 - Completed
+2. 484 - Completed
+3. 860 - Completed
+4. 939 - Completed
+5. 10132 - Completed
+6. 10138 - Completed
+7. 10226 - Completed
+8. 10282 - Completed
+9. 10295 - Completed
+10. 10686 - Completed
+11. 11239 - Completed
+12. 11286 - Completed
+13. 11308 - Completed
+14. 11348 - Completed
+15. 11572 - Completed
+16. 11629 - Completed
+17. 12592 - Completed
+18. 12504 - Completed
+C++ Set
+19. 501 - Completed
+20. 978 - Completed
+21. 10815 - Completed
+22. 11062 - Completed
+23. 11136 - Completed
+24. 11849 - Completed
+25. 12049 - Completed
+C++ Priority_queue
+26. 1203 - Completed
+27. 10954 - Completed
+28. 11995 - Completed
+
+C++ Graph Datastructures
+1. 599 - Completed
+2. 10895 - Completed
+3. 10928 - Completed
+4. 11550 - Completed
+5. 11991 - Completed
+
+Union Find Disjoint sets
+6. 793 - Completed
+7. 1197 - Completed
+8. 10158 - Tried
+9. 10227 - Completed
+10. 10507 - Completed
+11. 10583 - Completed
+12. 10608 - Completed
+13. 10685 - Completed
+14. 11503 - Completed
+15. 11690 - Completed
+
+Tree related data structures
+16. 297 - Completed
+17. 1232 - Tried
+18. 11235 - Completed
+19. 11297 - Completed
+20. 11350 - Completed
+21. 11402 - Completed
+22. 12086 - Completed
+23. 12532 - Completed
+
+Alternate days (4:3) principle
+Complete Search, Binary Search, Greedy, Dynamic Programming
+927
+10487
+441
+624
+10483
+234
+301
+
+
+1237
+10730
+10576
+735
+10660
+11085
+1047
+
+10976
+11242
+10344
+10102
+11236
+380
+1064
+
+11001
+12488
+750
+11975
+11553
+331
+
+
+102
+112583
+524
+12498
+574
+11548
+775
+12249
+10001
+
+
+12515
+10063
+11565
+10460
+12346
+10503
+10360
+10506
+12348
+10950
+12406
+11961
+12455
+
+
+
+Hard Backtrack
+129
+193
+416
+861
+1262
+10128
+11090
+
+Graph String
+
+
+
+

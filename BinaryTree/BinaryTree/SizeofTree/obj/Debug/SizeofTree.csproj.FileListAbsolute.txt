@@ -1,0 +1,6 @@
+C:\Users\Shiva\Learning\BinaryTree\BinaryTree\SizeofTree\bin\Debug\SizeofTree.exe.config
+C:\Users\Shiva\Learning\BinaryTree\BinaryTree\SizeofTree\bin\Debug\SizeofTree.exe
+C:\Users\Shiva\Learning\BinaryTree\BinaryTree\SizeofTree\bin\Debug\SizeofTree.pdb
+C:\Users\Shiva\Learning\BinaryTree\BinaryTree\SizeofTree\obj\Debug\SizeofTree.csprojResolveAssemblyReference.cache
+C:\Users\Shiva\Learning\BinaryTree\BinaryTree\SizeofTree\obj\Debug\SizeofTree.exe
+C:\Users\Shiva\Learning\BinaryTree\BinaryTree\SizeofTree\obj\Debug\SizeofTree.pdb

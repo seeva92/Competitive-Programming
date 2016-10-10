@@ -1,0 +1,28 @@
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:27:21: error: non-aggregate type 'pair<int, bool>' cannot be initialized with an initializer list
+    pair<int, bool> val = {0, true};
+                    ^     ~~~~~~~~~
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:29:5: error: use of undeclared identifier 'temp'
+    temp;
+    ^
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:31:7: error: use of undeclared identifier 'temp'
+      temp = get(year + 1);
+      ^
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:32:20: error: use of undeclared identifier 'temp'
+      val.second = temp.second;
+                   ^
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:33:32: error: use of undeclared identifier 'temp'
+      val.first = (val.first + temp.first) % 7;
+                               ^
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:35:5: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    auto res = val;
+    ^
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:37:7: error: use of undeclared identifier 'temp'
+      temp = get(i);
+      ^
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:38:20: error: use of undeclared identifier 'temp'
+      val.second = temp.second;
+                   ^
+/Users/seeva92/Workspace/Contests/CodeForces/678_ProbB.cpp:39:32: error: use of undeclared identifier 'temp'
+      val.first = (val.first + temp.first) % 7;
+                               ^
+1 warning and 8 errors generated.

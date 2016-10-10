@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <set>
+#include <climits>
+#include <cstdio>
+#include <string>
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(false);
+	freopen("1.txt","r",stdin);
+	freopen("2.txt","w",stdout);
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<!-- <tabTrigger>hello</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

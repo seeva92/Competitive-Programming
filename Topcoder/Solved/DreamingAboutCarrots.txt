@@ -1,0 +1,53 @@
+PROBLEM STATEMENT
+John works at a company called "FIELD-Tech", and today, he was so tired after work that he fell asleep as soon as he got home.  Unfortunately, even in his sleep, he was unable to forget about his work.  In one dream, he was asked to help a carrot producing company deal with the following question: how many carrots grow on a line segment connecting two given carrots?  The endpoints of the segment (i.e., the two given carrots) should not be included.  It's a rather strange question, and to make it even stranger, the company's representatives (guys who have carrots instead of heads) said that all the carrots grow on an infinite plane, and there is exactly one carrot at each point with integer coordinates.  You must help tired John deal with this problem.
+
+The coordinates of the two carrots are (x1, y1) and (x2, y2). Return the number of carrots that lie strictly on the line segment connecting these carrots.
+
+DEFINITION
+Class:DreamingAboutCarrots
+Method:carrotsBetweenCarrots
+Parameters:int, int, int, int
+Returns:int
+Method signature:int carrotsBetweenCarrots(int x1, int y1, int x2, int y2)
+
+
+CONSTRAINTS
+-x1, y1, x2, and y2 will each be between 0 and 50, inclusive.
+-(x1, y1) and (x2, y2) will represent different points.
+
+
+EXAMPLES
+
+0)
+1
+1
+5
+5
+
+Returns: 3
+
+There are three points inside of the segment: (2,2), (3,3) and (4,4).
+
+1)
+0
+0
+1
+1
+
+Returns: 0
+
+2)
+50
+48
+0
+0
+
+Returns: 1
+
+3)
+0
+0
+42
+36
+
+Returns: 5

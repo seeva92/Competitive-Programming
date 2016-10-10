@@ -1,0 +1,6 @@
+C:\Users\Shiva\Learning\CodeForces\319_Div2\ProbA\bin\Debug\ProbA.exe.config
+C:\Users\Shiva\Learning\CodeForces\319_Div2\ProbA\bin\Debug\ProbA.exe
+C:\Users\Shiva\Learning\CodeForces\319_Div2\ProbA\bin\Debug\ProbA.pdb
+C:\Users\Shiva\Learning\CodeForces\319_Div2\ProbA\obj\Debug\ProbA.csprojResolveAssemblyReference.cache
+C:\Users\Shiva\Learning\CodeForces\319_Div2\ProbA\obj\Debug\ProbA.exe
+C:\Users\Shiva\Learning\CodeForces\319_Div2\ProbA\obj\Debug\ProbA.pdb

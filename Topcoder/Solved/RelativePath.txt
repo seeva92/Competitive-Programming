@@ -1,0 +1,73 @@
+PROBLEM STATEMENT
+In a typical filesystem, there are files, representing complete units of data.  These files are contained in directories, and these directories, in turn, may be contained in other directories, and so on. A path is a pointer to a specific file or directory in this stucture. Most Unix-like OSes have a single root directory, that has all other directories and files directly or indirectly (via other directories) inside it. Such OSes use the following structure for file paths:
+/<directory-name>/<directory-name>/.../<directory-name>/<file-name>
+and, correspondingly, the following structure for directory paths:
+/<directory-name>/<directory-name>/.../<directory-name>
+For example, "/etc/passwd" (all quotes here and below are for clarity only) points to a file named "passwd" inside a directory named "etc" inside the root directory. Other valid file names might be "/home/user/pictures/me" or just "/file". In this problem, we allow only nonempty sequences of lowercase letters ('a'-'z') as file and directory names.
+A special case is the root directory itself, which is referred to as just "/".
+When a user works with such an OS, one of the directories is chosen as 'current'. Such a designation allows her to refer to the files in that directory without specifying the full path to the current directory. For example, if the current directory is "/home/user/pictures", then one might refer to the file "/home/user/pictures/me" as just "me" (note that such a short form can be easily spotted by the absence of the starting '/' character). Moreover, the files in subdirectories of the current directory can also be referred to in a short manner: "/home/user/pictures/others/she" can be referred to as "others/she".
+And even more exciting is the ability to have short references for files outside the current folder. More specifically, ".." means "the directory one level above the current directory", "../.." means "the directory two levels above the current directory", and so on. For example, if the current directory is "/home/user/pictures", and you want to refer to "/home/top/data/file", you can express that as "../../top/data/file".
+Given a string path, indicating the complete path to the file that needs to be referred to, and a string currentDir, indicating the current directory, return a String that contains the relative path to that file according to the above rules. You should choose the shortest of all possible relative paths (for example, if the current directory is "/home/user/pictures", you should use "../movies/title" and not "../../user/movies/title" as a pointer to "/home/user/movies/title").
+Some files and/or directories may have coinciding names, but it is impossible to have two files or two directories or a file and a directory with the same name inside the same directory, so file and directory paths are not ambiguous. It is guaranteed that the given data describes a valid file and directory according to the above rules. In particular, they will not contradict - for example, path="/home/user/some" and currentDir="/home/user/some/other" are a contradiction, since it implies that a file and a directory both named "some" exist inside the directory "/home/user".
+
+DEFINITION
+Class:RelativePath
+Method:makeRelative
+Parameters:string, string
+Returns:string
+Method signature:string makeRelative(string path, string currentDir)
+
+
+NOTES
+-A file name never ends with the '/' character.  A directory name never ends with the '/' character, with the exception of the root directory, which is specified as just "/".
+
+
+CONSTRAINTS
+-path and currentDir will each contain between 1 and 50 characters, inclusive.
+-Each character of path and currentDir will be '/', or a lowercase letter ('a'-'z').
+-path will contain a valid file path according to the above rules.
+-currentDir will contain a valid directory path according to the above rules.
+-path and currentDir will not contradict (see the last paragraph of the statement).
+
+
+EXAMPLES
+
+0)
+"/home/top/data/file"
+"/home/user/pictures"
+
+Returns: "../../top/data/file"
+
+The example from the problem statement.
+
+1)
+"/home/user/movies/title"
+"/home/user/pictures"
+
+Returns: "../movies/title"
+
+And another one from the statement.
+
+2)
+"/file"
+"/"
+
+Returns: "file"
+
+Remember about the root directory.
+
+3)
+"/a/b/a/b/a/b"
+"/a/b/a/a/b/a/b"
+
+Returns: "../../../../b/a/b"
+
+Some file and directory names may be the same.
+
+4)
+"/root/root/root"
+"/root"
+
+Returns: "root/root"
+
+Some files and/or directories can be named "root" - but that doesn't make them root directories.

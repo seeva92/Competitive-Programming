@@ -1,0 +1,57 @@
+PROBLEM STATEMENT
+Return the number of positive integers that are multiples of each number in divisors and divisors of each number in multiples.
+
+DEFINITION
+Class:FactoVisors
+Method:getNum
+Parameters:vector <int>, vector <int>
+Returns:int
+Method signature:int getNum(vector <int> divisors, vector <int> multiples)
+
+
+CONSTRAINTS
+-divisors and multiples will each contain between 1 and 50 elements, inclusive.
+-Each element of divisors and multiples will be between 1 and 10^9, inclusive.
+
+
+EXAMPLES
+
+0)
+{1}
+{100}
+
+Returns: 9
+
+The working integers are 1, 2, 4, 5, 10, 20, 25, 50, and 100.
+
+1)
+{6,9}
+{18}
+
+Returns: 1
+
+18 is the only integer that works.
+
+2)
+{6,9}
+{96,180}
+
+Returns: 0
+
+No integers work.
+
+3)
+{2,4}
+{256}
+
+Returns: 7
+
+
+
+4)
+{1000,10000,100000}
+{1000000000}
+
+Returns: 25
+
+Beware of overflow.
