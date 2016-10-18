@@ -1,56 +1,53 @@
 import java.io.*;
 import java.util.*;
-class VasyaRhezo {
-	int N, Q, L, R, Val, K;
-	int [] A, B;
-	int [][] Spt;
-	static FileOutputStream fout;
-	static PrintWriter pr;
+class VasyaRhezoSeg {
+	int N, Q, X, Y, Val;
+	int [] A, B, Seg;
 	static IO io;
-	static void initIO(boolean flag) throws Exception {
-		io = new IO(flag);
+	public int comp(int lf, int rf) {
+		if (A[lf] < A[rf]) return rf;
+		else if (A[lf] > A[rf]) return lf;
+		else {
+			if (B[lf] < B[rf]) return lf;
+			else if (B[lf] > B[rf]) return rf;
+		}
+		return  Math.min(lf, rf);
+	}
+	public void build(int i, int j, int idx) {
+		if (i == j) {
+			Seg[idx] = i; return;
+		}
+		build(i, (i + j) / 2, (idx << 1));
+		build((i + j) / 2 + 1, j, (idx << 1) + 1);
+		int lf = Seg[(idx << 1)], rf = Seg[(idx << 1) + 1];
+		Seg[idx] = comp(lf, rf);
+	}
+	public int query(int i, int j, int idx, int l, int r) {
+		if (i > j || r < i || l > j) return 0;
+		if (l <= i && j <= r) return Seg[idx];
+
+		return comp(query(i, (i + j) / 2, (idx << 1), l, r), query((i + j) / 2 + 1, j, (idx << 1) + 1, l, r));
 	}
 	public void init(boolean flag) throws Exception {
-		initIO(flag);
+		io = new IO(flag);
 		N = io.nextInt();
-		// int M = (int)Math.floor(Math.log(N + 3) / Math.log(2));
-		A = new int[N]; B = new int[N];
-		Spt = new int[N + 1][31 - Integer.numberOfLeadingZeros(N + 3) + 1];
+		A = new int[N + 1]; B = new int[N + 1]; Seg = new int[4 * N];
 
-		for (int i = 0; i < N; i++) { A[i] = io.nextInt(); Spt[i][0] = i; }
-		for (int i = 0; i < N; i++) B[i] = io.nextInt();
-		for (int j = 1; (1 << j) <= N; j++) {
-			for (int i = 0; (i + (1 << j) - 1) < N; i++) {
-				if (A[Spt[i][j - 1]] == A[Spt[i + (1 << (j - 1))][j - 1]]) {
-					if (B[Spt[i][j - 1]] == B[Spt[i + (1 << (j - 1))][j - 1]]) {
-						if (Spt[i][j - 1] < Spt[i + (1 << (j - 1))][j - 1]) Spt[i][j] = Spt[i][j - 1];
-						else Spt[i][j] = Spt[i + (1 << (j - 1))][j - 1];
-					} else if (B[Spt[i][j - 1]] < B[Spt[i + (1 << (j - 1))][j - 1]]) Spt[i][j] = Spt[i][j - 1];
-					else  Spt[i][j] = Spt[i + (1 << (j - 1))][j - 1];
-				} else if (A[Spt[i][j - 1]] > A[Spt[i + (1 << (j - 1))][j - 1]]) Spt[i][j] = Spt[i][j - 1];
-				else Spt[i][j] = Spt[i + (1 << (j - 1))][j - 1];
-			}
-		}
+		for (int i = 1; i <= N; i++) A[i] = io.nextInt();
+		for (int i = 1; i <= N; i++) B[i] = io.nextInt();
+		build(1, N, 1);
 
 		Q = io.nextInt();
-		for (int i = 0; i < Q; i++) {
-			L = io.nextInt() - 1; R = io.nextInt() - 1;
-			K = 31 - Integer.numberOfLeadingZeros(R - L + 1);
-			if (A[Spt[L][K]] == A[Spt[R - (1 << K) + 1][K]]) {
-				if (B[Spt[L][K]] == B[Spt[R - (1 << K) + 1][K]]) {
-					if (Spt[L][K] < Spt[R - (1 << K) + 1][K]) io.println(Spt[L][K] + 1);
-					else io.println(Spt[R - (1 << K) + 1][K] + 1);
-				} else if (B[Spt[L][K]] < B[Spt[R - (1 << K) + 1][K]]) io.println(Spt[L][K] + 1);
-				else  io.println(Spt[R - (1 << K) + 1][K] + 1);
-			} else if (A[Spt[L][K]] > A[Spt[R - (1 << K) + 1][K]]) io.println(Spt[L][K] + 1);
-			else io.println(Spt[R - (1 << K) + 1][K] + 1);
+		for (int i = 1; i <= Q; i++) {
+			X = io.nextInt(); Y = io.nextInt();
+			io.println(query(1, N, 1, X, Y));
 		}
 		io.close();
 	}
+
 	public static void main(String[] args) throws Exception {
 		VasyaRhezo c = new VasyaRhezo();
 		c.init(true);
-
 	}
 	static class IO {
 		final private int BUFFER_SIZE = 1 << 16;
@@ -165,6 +162,5 @@ class VasyaRhezo {
 			bw.close();
 		}
 	}
-
 
 }
