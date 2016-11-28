@@ -1,28 +1,14 @@
 import java.io.*;
 import java.util.*;
-import java.math.*;
 class VasyaMath {
-	static FileInputStream fin;
-	static FileOutputStream fout;
-	static BufferedReader br;
-	static PrintWriter pr;
-	static void initL() throws Exception {
-		fin = new FileInputStream("/Users/seeva92/Workspace/Contests/1.txt");
-		fout = new FileOutputStream("/Users/seeva92/Workspace/Contests/2.txt");
-		br = new BufferedReader(new InputStreamReader(fin));
-		pr = new PrintWriter(fout, true);
-	}
-	static void initI() throws Exception {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		pr = new PrintWriter(System.out, true);
-	}
+	static IO io;
 	int T, N, L, R;
 	long arr[];
-	final BigInteger mod = new BigInteger(Long.toString((long)1e9 + 7));
+	final long mod = (long)1e9 + 7;
 	int sieve[] = new int[10000021];
 	long primes[] = new long[10050];
 	int pIdx = 0;
-	BigInteger vals[];
+	long vals[];
 	public void processprimes() {
 		int len = (int)Math.sqrt(10000007);
 		sieve[1] = 1;
@@ -34,15 +20,22 @@ class VasyaMath {
 				primes[pIdx++] = (long)i;
 			}
 	}
-
-	public void init() throws Exception {
+	public long modexp(long a, long b) {
+		long res = 1;
+		while (b > 0) {
+			if ((b & 1) > 0) res = (res * a) % mod;
+			a = (a * a) % mod;
+		}
+		return res;
+	}
+	public void init(boolean flag) throws Exception {
+		io = new IO(flag);
 		processprimes();
-		N = Integer.parseInt(br.readLine());
-		vals = new BigInteger[N];
+		N = io.nextInt();
+		vals = new long[N];
 		arr = new long[N];
-		String [] temp = br.readLine().split(" ");
 		for (int i = 0; i < N; i++)  {
-			arr[i] = Integer.parseInt(temp[i]);
+			arr[i] = io.nextInt();
 			if (arr[i] % 2 == 0) arr[i] = arr[i] / 2;
 			else if (sieve[(int)arr[i]] == 0) {
 				arr[i] = 1;
@@ -53,25 +46,127 @@ class VasyaMath {
 					}
 				}
 			}
-			vals[i] = new BigInteger(Long.toString(arr[i]));
-			if (i > 0)vals[i] = vals[i].multiply(vals[i - 1]);
+			vals[i] = arr[i];
+			if (i > 0) vals[i] = (vals[i] * vals[i - 1]) % mod;
 		}
 		// for (int i = 0; i < N; i++) pr.println(vals[i]);
-		T = Integer.parseInt(br.readLine());
+		T = io.nextInt();
 		for (int i = 0; i < T; i++) {
-			temp = br.readLine().split(" ");
-			L = Integer.parseInt(temp[0]) - 1; R = Integer.parseInt(temp[1]) - 1;
-			BigInteger bib[];
+			L = io.nextInt() - 1; R = io.nextInt() - 1;
 			if (L - 1 >= 0) {
-				bib = vals[R].divideAndRemainder(vals[L - 1]);
-				pr.println(bib[0].mod(mod));
+				io.println((vals[R] * modexp(vals[L - 1], mod - 2)) % mod);
 			} else {
-				pr.println(vals[R].mod(mod));
+				io.println(vals[R]);
 			}
 		}
 	}
 	public static void main(String[] args) throws Exception {
-		initL();
-		new VasyaMath().init();
+		new VasyaMath().init(true);
+		if (io != null)
+			io.close();
+	}
+	static class IO {
+		final private int BUFFER_SIZE = 1 << 16;
+		private BufferedInputStream din;
+		private BufferedWriter bw;
+		private byte[] buffer;
+		private int bufferPointer, bytesRead;
+		public IO(boolean flag) throws Exception {
+			if (flag) {
+				din = new BufferedInputStream(new FileInputStream("/Users/seeva92/Workspace/Contests/1.txt"));
+				bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/Users/seeva92/Workspace/Contests/2.txt")));
+			} else {
+				din = new BufferedInputStream(System.in);
+				bw = new BufferedWriter(new OutputStreamWriter(System.out));
+			}
+			buffer = new byte[BUFFER_SIZE];
+			bufferPointer = bytesRead = 0;
+		}
+		public void print(Object object)throws IOException {
+			bw.append("" + object);
+		}
+		public void println(Object object)throws IOException {
+			bw.append(object + "\n");
+		}
+		public String readLine() throws IOException {
+			byte[] buf = new byte[64]; // line length
+			int cnt = 0, c;
+			while ((c = read()) != -1) {
+				if (c == '\n')
+					break;
+				buf[cnt++] = (byte) c;
+			}
+			return new String(buf, 0, cnt);
+		}
+		public int nextInt() throws IOException {
+			int ret = 0;
+			byte c = read();
+			while (c <= ' ')
+				c = read();
+			boolean neg = (c == '-');
+			if (neg)
+				c = read();
+			do {
+				ret = ret * 10 + c - '0';
+			}  while ((c = read()) >= '0' && c <= '9');
+
+			if (neg)
+				return -ret;
+			return ret;
+		}
+		public long nextLong() throws IOException {
+			long ret = 0;
+			byte c = read();
+			while (c <= ' ')
+				c = read();
+			boolean neg = (c == '-');
+			if (neg)
+				c = read();
+			do {
+				ret = ret * 10 + c - '0';
+			} while ((c = read()) >= '0' && c <= '9');
+			if (neg)
+				return -ret;
+			return ret;
+		}
+		public double nextDouble() throws IOException {
+			double ret = 0, div = 1;
+			byte c = read();
+			while (c <= ' ')
+				c = read();
+			boolean neg = (c == '-');
+			if (neg)
+				c = read();
+
+			do {
+				ret = ret * 10 + c - '0';
+			} while ((c = read()) >= '0' && c <= '9');
+
+			if (c == '.') {
+				while ((c = read()) >= '0' && c <= '9') {
+					ret += (c - '0') / (div *= 10);
+				}
+			}
+			if (neg)
+				return -ret;
+			return ret;
+		}
+		private void fillBuffer() throws IOException {
+			bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
+			if (bytesRead == -1)
+				buffer[0] = -1;
+		}
+		private byte read() throws IOException {
+			if (bufferPointer == bytesRead)
+				fillBuffer();
+			return buffer[bufferPointer++];
+		}
+		public void close() throws IOException {
+			if (din == null)
+				return;
+			din.close();
+			bw.close();
+		}
 	}
 }
+
