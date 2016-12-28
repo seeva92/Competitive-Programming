@@ -6,13 +6,13 @@ int n, m;
 int arr[1007];
 int assigned[100007];
 vi g[1007];
-bool bipcheck(int i, map<int, bool> & done) {
+bool bpm(int i, map<int, bool> & done) {
 	for (auto j : g[i]) {
 		if (!done[j]) {
 			done[j] = 1;
 			if (assigned[j] == -1) {
 				assigned[j] = i; return true;
-			} else if (bipcheck(assigned[j], done)) {
+			} else if (bpm(assigned[j], done)) {
 				assigned[j] = i; return true;
 			}
 		}
@@ -44,7 +44,7 @@ int main() {
 	int ans = 0;
 	for (int i = 0; i < n; i++) {
 		map<int, bool> done;
-		ans += bipcheck(i, done);
+		ans += bpm(i, done);
 	}
 	cout << ans << '\n';
 }
